@@ -1,4 +1,3 @@
-cat > src/App.jsx <<'EOF'
 import React, { useEffect, useState } from 'react';
 import {
   ArrowUpRight,
@@ -17,23 +16,14 @@ import {
 const repoLink =
   'https://github.com/MrDawnOP/zalando-style-customer-segmentation-roi';
 
+const portfolioLink =
+  'https://ankit-vyas-analytics-portfolio-51j7qv0mp-mrdawnops-projects.vercel.app/';
+
 const metrics = [
   { label: 'Customers Analysed', value: '10,000+', icon: Users },
   { label: 'Orders Reviewed', value: '50,000+', icon: Database },
   { label: 'Campaigns Tracked', value: '120', icon: BarChart3 },
   { label: 'Core KPIs', value: 'ROI / ROAS', icon: TrendingUp },
-];
-
-const kpis = [
-  'Revenue',
-  'Profit',
-  'Conversion Rate',
-  'CPA',
-  'ROAS',
-  'Marketing ROI',
-  'Customer Lifetime Value',
-  'RFM Score',
-  'Churn Risk',
 ];
 
 const methodology = [
@@ -73,6 +63,18 @@ const tools = [
   'Marketing ROI',
 ];
 
+const kpis = [
+  'Revenue',
+  'Profit',
+  'Conversion Rate',
+  'CPA',
+  'ROAS',
+  'Marketing ROI',
+  'Customer Lifetime Value',
+  'RFM Score',
+  'Churn Risk',
+];
+
 const ThemeToggle = ({ theme, setTheme }) => {
   const isDark = theme === 'dark';
 
@@ -80,54 +82,55 @@ const ThemeToggle = ({ theme, setTheme }) => {
     <button
       type="button"
       onClick={() => setTheme(isDark ? 'light' : 'dark')}
-      className="inline-flex items-center gap-2 rounded-full border border-slate-300 bg-white px-4 py-2 text-sm font-bold text-slate-900 shadow-sm transition hover:-translate-y-0.5 hover:shadow-md dark:border-white/10 dark:bg-slate-900 dark:text-white"
+      className="inline-flex items-center gap-2 rounded-full border border-slate-300 bg-white px-4 py-2 text-sm font-bold text-slate-900 transition hover:-translate-y-0.5 dark:border-white/10 dark:bg-slate-900 dark:text-white"
     >
       {isDark ? <Sun size={16} /> : <Moon size={16} />}
-      {isDark ? 'Light Mode' : 'Dark Mode'}
+      {isDark ? 'Light' : 'Dark'}
     </button>
   );
 };
 
-const SectionHeader = ({ eyebrow, title, text }) => {
-  return (
-    <div className="mb-10 max-w-3xl">
-      <p className="mb-4 inline-flex items-center gap-2 rounded-full border border-cyan-500/20 bg-cyan-500/10 px-4 py-2 text-xs font-black uppercase tracking-[0.2em] text-cyan-700 dark:text-cyan-200">
-        <Sparkles size={14} />
-        {eyebrow}
+const SectionHeader = ({ eyebrow, title, text }) => (
+  <div className="mb-10 max-w-3xl">
+    <p className="mb-4 inline-flex items-center gap-2 rounded-full border border-cyan-500/20 bg-cyan-500/10 px-4 py-2 text-xs font-black uppercase tracking-[0.2em] text-cyan-700 dark:text-cyan-200">
+      <Sparkles size={14} />
+      {eyebrow}
+    </p>
+
+    <h2 className="text-3xl font-black tracking-tight text-slate-950 dark:text-white md:text-4xl">
+      {title}
+    </h2>
+
+    {text && (
+      <p className="mt-4 text-base leading-8 text-slate-600 dark:text-slate-300">
+        {text}
       </p>
-
-      <h2 className="text-3xl font-black tracking-tight text-slate-950 dark:text-white md:text-4xl">
-        {title}
-      </h2>
-
-      {text && (
-        <p className="mt-4 text-base leading-8 text-slate-600 dark:text-slate-300">
-          {text}
-        </p>
-      )}
-    </div>
-  );
-};
+    )}
+  </div>
+);
 
 const ExternalButton = ({ href, children, primary = false }) => {
   const base =
     'inline-flex items-center justify-center gap-2 rounded-xl px-5 py-3 text-sm font-black transition duration-200';
 
-  const style = primary
-    ? 'bg-cyan-400 text-slate-950 hover:-translate-y-0.5 hover:bg-cyan-300 hover:shadow-lg hover:shadow-cyan-500/20'
-    : 'border border-slate-300 bg-white text-slate-900 hover:-translate-y-0.5 hover:border-cyan-500 hover:text-cyan-700 dark:border-white/10 dark:bg-slate-900/70 dark:text-slate-100 dark:hover:border-cyan-300 dark:hover:text-cyan-200';
-
   return (
-    <a href={href} target="_blank" rel="noreferrer" className={`${base} ${style}`}>
+    <a
+      href={href}
+      target="_blank"
+      rel="noreferrer"
+      className={
+        primary
+          ? `${base} bg-cyan-400 text-slate-950 hover:-translate-y-0.5 hover:bg-cyan-300 hover:shadow-lg hover:shadow-cyan-500/20`
+          : `${base} border border-slate-300 bg-white text-slate-900 hover:-translate-y-0.5 hover:border-cyan-500 hover:text-cyan-700 dark:border-white/10 dark:bg-slate-900/70 dark:text-slate-100 dark:hover:border-cyan-300 dark:hover:text-cyan-200`
+      }
+    >
       {children}
     </a>
   );
 };
 
 function App() {
-  const [theme, setTheme] = useState(() => {
-    return localStorage.getItem('theme') || 'dark';
-  });
+  const [theme, setTheme] = useState(() => localStorage.getItem('theme') || 'dark');
 
   useEffect(() => {
     const root = document.documentElement;
@@ -146,7 +149,6 @@ function App() {
       <div className="pointer-events-none fixed inset-0 z-0">
         <div className="absolute left-[-12rem] top-[-12rem] h-[32rem] w-[32rem] rounded-full bg-cyan-400/20 blur-3xl dark:bg-cyan-400/10" />
         <div className="absolute right-[-14rem] top-[18rem] h-[34rem] w-[34rem] rounded-full bg-blue-500/20 blur-3xl dark:bg-blue-500/10" />
-        <div className="absolute bottom-[-16rem] left-[20%] h-[34rem] w-[34rem] rounded-full bg-teal-400/20 blur-3xl dark:bg-teal-400/10" />
       </div>
 
       <nav className="sticky top-0 z-50 border-b border-slate-200 bg-white/80 backdrop-blur-xl dark:border-white/10 dark:bg-slate-950/80">
@@ -191,12 +193,10 @@ function App() {
                   GitHub Repo
                 </ExternalButton>
 
-                <a
-                  href="#overview"
-                  className="inline-flex items-center justify-center gap-2 rounded-xl border border-slate-300 bg-white px-5 py-3 text-sm font-black text-slate-900 transition hover:-translate-y-0.5 hover:border-cyan-500 hover:text-cyan-700 dark:border-white/10 dark:bg-slate-900/70 dark:text-slate-100 dark:hover:border-cyan-300 dark:hover:text-cyan-200"
-                >
-                  View Case Study <ArrowUpRight size={17} />
-                </a>
+                <ExternalButton href={portfolioLink}>
+                  <ArrowUpRight size={17} />
+                  Back to Portfolio
+                </ExternalButton>
               </div>
 
               <div className="mt-10 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
@@ -212,7 +212,7 @@ function App() {
                       <p className="mt-4 text-2xl font-black text-slate-950 dark:text-white">
                         {metric.value}
                       </p>
-                      <p className="mt-1 text-sm font-semibold text-slate-500 dark:text-slate-400">
+                      <p className="mt-1 text-sm font-bold text-slate-500 dark:text-slate-400">
                         {metric.label}
                       </p>
                     </div>
@@ -238,10 +238,10 @@ function App() {
 
                 <div className="mt-6 space-y-4">
                   {[
-                    ['Business Problem', 'Which customer segments and marketing channels drive profitable growth?'],
-                    ['Core Analysis', 'RFM segmentation, campaign ROI, ROAS, CPA, CLV and churn risk.'],
-                    ['Decision Output', 'Budget reallocation and retention strategy recommendations.'],
-                    ['Recruiter Value', 'Shows analytics, commercial thinking and stakeholder storytelling.'],
+                    ['Business Problem', 'Which customer segments and channels drive profitable growth?'],
+                    ['Core Analysis', 'RFM segmentation, ROI, ROAS, CPA, CLV and churn risk.'],
+                    ['Decision Output', 'Budget reallocation and retention recommendations.'],
+                    ['Recruiter Value', 'Shows analytics, commercial thinking and storytelling.'],
                   ].map(([label, value]) => (
                     <div
                       key={label}
@@ -280,8 +280,12 @@ function App() {
                   className="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm dark:border-white/10 dark:bg-slate-900/70"
                 >
                   <CheckCircle2 className="text-cyan-600 dark:text-cyan-300" size={22} />
-                  <h3 className="mt-5 text-xl font-black text-slate-950 dark:text-white">{title}</h3>
-                  <p className="mt-3 text-sm leading-7 text-slate-600 dark:text-slate-300">{text}</p>
+                  <h3 className="mt-5 text-xl font-black text-slate-950 dark:text-white">
+                    {title}
+                  </h3>
+                  <p className="mt-3 text-sm leading-7 text-slate-600 dark:text-slate-300">
+                    {text}
+                  </p>
                 </div>
               ))}
             </div>
@@ -304,8 +308,12 @@ function App() {
                 <div className="flex h-10 w-10 items-center justify-center rounded-2xl bg-cyan-400 text-sm font-black text-slate-950">
                   {index + 1}
                 </div>
-                <h3 className="mt-5 text-xl font-black text-slate-950 dark:text-white">{item.title}</h3>
-                <p className="mt-3 text-sm leading-7 text-slate-600 dark:text-slate-300">{item.text}</p>
+                <h3 className="mt-5 text-xl font-black text-slate-950 dark:text-white">
+                  {item.title}
+                </h3>
+                <p className="mt-3 text-sm leading-7 text-slate-600 dark:text-slate-300">
+                  {item.text}
+                </p>
               </div>
             ))}
           </div>
@@ -343,71 +351,34 @@ function App() {
           />
 
           <div className="grid gap-6 lg:grid-cols-2">
-            <div className="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm dark:border-white/10 dark:bg-white/[0.035]">
-              <h3 className="text-xl font-black text-slate-950 dark:text-white">Tools</h3>
-              <div className="mt-5 flex flex-wrap gap-2">
-                {tools.map((tool) => (
-                  <span
-                    key={tool}
-                    className="rounded-full border border-slate-200 bg-slate-50 px-3 py-2 text-sm font-semibold text-slate-700 dark:border-white/10 dark:bg-slate-950/70 dark:text-slate-300"
-                  >
-                    {tool}
-                  </span>
-                ))}
+            {[
+              ['Tools', tools],
+              ['KPIs Analysed', kpis],
+            ].map(([title, items]) => (
+              <div
+                key={title}
+                className="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm dark:border-white/10 dark:bg-white/[0.035]"
+              >
+                <h3 className="text-xl font-black text-slate-950 dark:text-white">
+                  {title}
+                </h3>
+                <div className="mt-5 flex flex-wrap gap-2">
+                  {items.map((item) => (
+                    <span
+                      key={item}
+                      className="rounded-full border border-slate-200 bg-slate-50 px-3 py-2 text-sm font-bold text-slate-700 dark:border-white/10 dark:bg-slate-950/70 dark:text-slate-300"
+                    >
+                      {item}
+                    </span>
+                  ))}
+                </div>
               </div>
-            </div>
-
-            <div className="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm dark:border-white/10 dark:bg-white/[0.035]">
-              <h3 className="text-xl font-black text-slate-950 dark:text-white">KPIs Analysed</h3>
-              <div className="mt-5 flex flex-wrap gap-2">
-                {kpis.map((kpi) => (
-                  <span
-                    key={kpi}
-                    className="rounded-full border border-slate-200 bg-slate-50 px-3 py-2 text-sm font-semibold text-slate-700 dark:border-white/10 dark:bg-slate-950/70 dark:text-slate-300"
-                  >
-                    {kpi}
-                  </span>
-                ))}
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <section className="mx-auto max-w-7xl px-6 pb-20">
-          <div className="rounded-[2rem] border border-cyan-500/20 bg-cyan-500/10 p-8 dark:border-cyan-300/20 dark:bg-cyan-300/10">
-            <div className="grid gap-8 lg:grid-cols-[1fr_0.8fr] lg:items-center">
-              <div>
-                <p className="text-sm font-black uppercase tracking-[0.2em] text-cyan-700 dark:text-cyan-200">
-                  Final Output
-                </p>
-                <h2 className="mt-3 text-3xl font-black text-slate-950 dark:text-white md:text-4xl">
-                  Executive-ready marketing analytics case study.
-                </h2>
-                <p className="mt-4 max-w-2xl leading-8 text-slate-600 dark:text-slate-300">
-                  This project is designed to communicate business context, technical method,
-                  KPI logic and commercial recommendations in a clear way for analyst interviews.
-                </p>
-              </div>
-
-              <div className="flex flex-wrap gap-3 lg:justify-end">
-                <ExternalButton href={repoLink} primary>
-                  <ExternalLink size={17} />
-                  View GitHub Repo
-                </ExternalButton>
-
-                <a
-                  href="#home"
-                  className="inline-flex items-center justify-center gap-2 rounded-xl border border-slate-300 bg-white px-5 py-3 text-sm font-black text-slate-900 transition hover:-translate-y-0.5 hover:border-cyan-500 hover:text-cyan-700 dark:border-white/10 dark:bg-slate-900/70 dark:text-slate-100 dark:hover:border-cyan-300 dark:hover:text-cyan-200"
-                >
-                  Back to Top <ArrowUpRight size={17} />
-                </a>
-              </div>
-            </div>
+            ))}
           </div>
         </section>
       </main>
 
-      <footer className="relative z-10 border-t border-slate-200 px-6 py-8 text-center text-sm text-slate-500 dark:border-white/10 dark:text-slate-500">
+      <footer className="relative z-10 border-t border-slate-200 px-6 py-8 text-center text-sm text-slate-500 dark:border-white/10">
         Zalando-Style Customer Segmentation & Marketing ROI Analysis © 2026
       </footer>
     </div>
@@ -415,4 +386,3 @@ function App() {
 }
 
 export default App;
-EOF
