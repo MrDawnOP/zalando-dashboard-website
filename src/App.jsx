@@ -19,11 +19,195 @@ const repoLink =
 const portfolioLink =
   'https://ankit-vyas-analytics-portfolio-51j7qv0mp-mrdawnops-projects.vercel.app/';
 
-const metrics = [
-  { label: 'Customers Analysed', value: '10,000+', icon: Users },
-  { label: 'Orders Reviewed', value: '50,000+', icon: Database },
-  { label: 'Campaigns Tracked', value: '120', icon: BarChart3 },
-  { label: 'Core KPIs', value: 'ROI / ROAS', icon: TrendingUp },
+const dashboardMetrics = [
+  { label: 'Total Revenue', value: '£2.4M', change: '+18%', note: 'vs previous period' },
+  { label: 'Marketing ROI', value: '3.8x', change: '+22%', note: 'campaign efficiency' },
+  { label: 'Average CPA', value: '£14.20', change: '-11%', note: 'lower acquisition cost' },
+  { label: 'Conversion Rate', value: '4.7%', change: '+9%', note: 'checkout performance' },
+  { label: 'Churn Risk', value: '18%', change: '-7%', note: 'at-risk customers' },
+  { label: 'Repeat Purchase', value: '42%', change: '+13%', note: 'loyalty signal' },
+];
+
+const channelPerformance = [
+  {
+    channel: 'Email',
+    spend: '£42K',
+    revenue: '£218K',
+    roas: '5.2x',
+    cpa: '£8.70',
+    score: 91,
+    action: 'Protect',
+  },
+  {
+    channel: 'Paid Search',
+    spend: '£96K',
+    revenue: '£442K',
+    roas: '4.6x',
+    cpa: '£12.40',
+    score: 82,
+    action: 'Scale',
+  },
+  {
+    channel: 'Organic Social',
+    spend: '£18K',
+    revenue: '£66K',
+    roas: '3.7x',
+    cpa: '£10.90',
+    score: 70,
+    action: 'Maintain',
+  },
+  {
+    channel: 'Paid Social',
+    spend: '£78K',
+    revenue: '£164K',
+    roas: '2.1x',
+    cpa: '£21.30',
+    score: 44,
+    action: 'Optimise',
+  },
+  {
+    channel: 'Display',
+    spend: '£54K',
+    revenue: '£76K',
+    roas: '1.4x',
+    cpa: '£29.80',
+    score: 28,
+    action: 'Reduce',
+  },
+];
+
+const funnelSteps = [
+  { stage: 'Website Sessions', users: '240K', rate: 100, drop: 'Baseline traffic' },
+  { stage: 'Product Views', users: '132K', rate: 55, drop: '45% drop-off' },
+  { stage: 'Add to Basket', users: '38K', rate: 16, drop: 'Basket intent' },
+  { stage: 'Checkout Started', users: '21K', rate: 9, drop: 'Payment friction' },
+  { stage: 'Orders Completed', users: '11.3K', rate: 4.7, drop: 'Final CVR' },
+];
+
+const customerSegments = [
+  {
+    segment: 'Champions',
+    size: '12%',
+    revenue: '£680K',
+    behaviour: 'Frequent buyers with high order value',
+    action: 'Prioritise loyalty rewards, early access and premium recommendations.',
+  },
+  {
+    segment: 'Loyal Customers',
+    size: '21%',
+    revenue: '£520K',
+    behaviour: 'Repeat buyers with strong retention signals',
+    action: 'Use cross-sell bundles and personalised category offers.',
+  },
+  {
+    segment: 'Potential Loyalists',
+    size: '18%',
+    revenue: '£360K',
+    behaviour: 'Recent buyers with medium frequency',
+    action: 'Nurture with email flows and product discovery campaigns.',
+  },
+  {
+    segment: 'At Risk',
+    size: '16%',
+    revenue: '£310K',
+    behaviour: 'Past valuable customers with declining activity',
+    action: 'Launch win-back campaigns with personalised incentives.',
+  },
+  {
+    segment: 'Low Value',
+    size: '33%',
+    revenue: '£120K',
+    behaviour: 'Low frequency and weak profitability',
+    action: 'Limit paid spend and use low-cost automation only.',
+  },
+];
+
+const budgetPlan = [
+  {
+    channel: 'Paid Search',
+    current: '32%',
+    recommended: '38%',
+    reason: 'Strong purchase intent and high ROAS.',
+  },
+  {
+    channel: 'Email',
+    current: '14%',
+    recommended: '22%',
+    reason: 'Best retention efficiency and lowest CPA.',
+  },
+  {
+    channel: 'Paid Social',
+    current: '26%',
+    recommended: '22%',
+    reason: 'Useful for reach, but conversion needs optimisation.',
+  },
+  {
+    channel: 'Display',
+    current: '18%',
+    recommended: '8%',
+    reason: 'Weakest ROI and highest CPA.',
+  },
+  {
+    channel: 'Testing Budget',
+    current: '10%',
+    recommended: '10%',
+    reason: 'Preserve budget for experiments and new audience tests.',
+  },
+];
+
+const executiveInsights = [
+  {
+    title: 'High-value customers drive disproportionate revenue',
+    metric: 'Top 20%',
+    text: 'A smaller group of loyal and high-frequency customers contributes a large share of revenue, making retention campaigns more valuable than broad discounting.',
+  },
+  {
+    title: 'Email and paid search deserve protected budget',
+    metric: '4x+ ROAS',
+    text: 'These channels show stronger commercial efficiency and should receive protected or increased investment.',
+  },
+  {
+    title: 'Display spend should be reduced',
+    metric: '1.4x ROAS',
+    text: 'Display has weak ROI and high CPA, so budget should shift into higher-performing channels.',
+  },
+  {
+    title: 'Churn-risk customers need a separate strategy',
+    metric: '18%',
+    text: 'Inactive and at-risk customers should receive personalised reactivation journeys instead of generic acquisition messaging.',
+  },
+];
+
+const recommendations = [
+  'Shift budget from weak display campaigns into paid search and email.',
+  'Create separate journeys for Champions, Loyal Customers and At-Risk users.',
+  'Use RFM segmentation to personalise campaign targeting and reduce wasted spend.',
+  'Track CPA, ROAS and conversion rate weekly to prevent inefficient spend.',
+  'Build an executive dashboard showing revenue, ROI, channel performance and churn-risk signals.',
+  'Run controlled A/B tests on landing pages for paid social campaigns.',
+];
+
+const tools = [
+  'SQL',
+  'Python',
+  'Pandas',
+  'Excel',
+  'Power BI / Tableau',
+  'GA4-style Metrics',
+  'RFM Analysis',
+  'Marketing ROI',
+];
+
+const kpis = [
+  'Revenue',
+  'Profit',
+  'Conversion Rate',
+  'CPA',
+  'ROAS',
+  'Marketing ROI',
+  'Customer Lifetime Value',
+  'RFM Score',
+  'Churn Risk',
 ];
 
 const methodology = [
@@ -43,58 +227,6 @@ const methodology = [
     title: 'Business Recommendations',
     text: 'Converted findings into budget reallocation, retention targeting and growth strategy recommendations.',
   },
-];
-
-const insights = [
-  'High-value customer groups should receive priority retention campaigns.',
-  'Campaigns with high spend but weak conversion require landing-page or creative optimisation.',
-  'Budget should shift from weak ROAS campaigns into stronger customer acquisition channels.',
-  'Churn-risk customers can be targeted through personalised reactivation offers.',
-];
-
-const tools = [
-  'SQL',
-  'Python',
-  'Pandas',
-  'Excel',
-  'Power BI / Tableau',
-  'GA4-style Metrics',
-  'RFM Analysis',
-  'Marketing ROI',
-];
-
-
-const dashboardMetrics = [
-  { label: 'Total Revenue', value: '£2.4M', change: '+18%' },
-  { label: 'Marketing ROI', value: '3.8x', change: '+22%' },
-  { label: 'Avg CPA', value: '£14.20', change: '-11%' },
-  { label: 'Churn Risk', value: '18%', change: '-7%' },
-];
-
-const channelPerformance = [
-  { channel: 'Paid Search', roas: '4.6x', roi: 82, status: 'Scale' },
-  { channel: 'Email', roas: '5.2x', roi: 91, status: 'Protect' },
-  { channel: 'Paid Social', roas: '2.1x', roi: 44, status: 'Optimise' },
-  { channel: 'Display', roas: '1.4x', roi: 28, status: 'Reduce' },
-];
-
-const customerSegments = [
-  { segment: 'Champions', revenue: '£680K', action: 'Retention priority' },
-  { segment: 'Loyal Customers', revenue: '£520K', action: 'Cross-sell' },
-  { segment: 'At Risk', revenue: '£310K', action: 'Win-back campaign' },
-  { segment: 'Low Value', revenue: '£120K', action: 'Limit paid spend' },
-];
-
-const kpis = [
-  'Revenue',
-  'Profit',
-  'Conversion Rate',
-  'CPA',
-  'ROAS',
-  'Marketing ROI',
-  'Customer Lifetime Value',
-  'RFM Score',
-  'Churn Risk',
 ];
 
 const ThemeToggle = ({ theme, setTheme }) => {
@@ -151,6 +283,15 @@ const ExternalButton = ({ href, children, primary = false }) => {
   );
 };
 
+const ProgressBar = ({ value }) => (
+  <div className="h-3 overflow-hidden rounded-full bg-slate-100 dark:bg-slate-800">
+    <div
+      className="h-full rounded-full bg-cyan-400"
+      style={{ width: `${value}%` }}
+    />
+  </div>
+);
+
 function App() {
   const [theme, setTheme] = useState(() => localStorage.getItem('theme') || 'dark');
 
@@ -181,10 +322,10 @@ function App() {
 
           <div className="hidden items-center gap-7 text-sm font-semibold text-slate-600 dark:text-slate-300 md:flex">
             <a href="#dashboard" className="hover:text-cyan-700 dark:hover:text-cyan-200">Dashboard</a>
-            <a href="#overview" className="hover:text-cyan-700 dark:hover:text-cyan-200">Overview</a>
-            <a href="#methodology" className="hover:text-cyan-700 dark:hover:text-cyan-200">Methodology</a>
+            <a href="#segments" className="hover:text-cyan-700 dark:hover:text-cyan-200">Segments</a>
+            <a href="#budget" className="hover:text-cyan-700 dark:hover:text-cyan-200">Budget</a>
             <a href="#insights" className="hover:text-cyan-700 dark:hover:text-cyan-200">Insights</a>
-            <a href="#tools" className="hover:text-cyan-700 dark:hover:text-cyan-200">Tools</a>
+            <a href="#methodology" className="hover:text-cyan-700 dark:hover:text-cyan-200">Methodology</a>
           </div>
 
           <ThemeToggle theme={theme} setTheme={setTheme} />
@@ -197,17 +338,17 @@ function App() {
             <div>
               <p className="mb-5 inline-flex items-center gap-2 rounded-full border border-cyan-500/20 bg-cyan-500/10 px-4 py-2 text-xs font-black uppercase tracking-[0.2em] text-cyan-700 dark:text-cyan-200">
                 <BarChart3 size={15} />
-                Featured Marketing Analytics Case Study
+                Featured Marketing Analytics Dashboard
               </p>
 
               <h1 className="max-w-5xl text-4xl font-black leading-[1.05] tracking-tight text-slate-950 dark:text-white md:text-6xl">
-                Zalando-Style Customer Segmentation & Marketing ROI Analysis
+                Zalando-Style Customer Segmentation & Marketing ROI Dashboard
               </h1>
 
               <p className="mt-6 max-w-3xl text-lg leading-8 text-slate-600 dark:text-slate-300">
-                A European fashion e-commerce analytics project analysing customer behaviour,
-                campaign ROI, ROAS, CPA, conversion rate, customer lifetime value, RFM
-                segmentation, churn risk and marketing budget reallocation.
+                A European fashion e-commerce analytics dashboard analysing customer behaviour,
+                channel efficiency, ROI, ROAS, CPA, conversion rate, RFM segmentation, churn risk
+                and marketing budget reallocation.
               </p>
 
               <div className="mt-8 flex flex-wrap gap-4">
@@ -221,36 +362,15 @@ function App() {
                   Back to Portfolio
                 </ExternalButton>
               </div>
-
-              <div className="mt-10 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
-                {metrics.map((metric) => {
-                  const Icon = metric.icon;
-
-                  return (
-                    <div
-                      key={metric.label}
-                      className="rounded-2xl border border-slate-200 bg-white p-4 shadow-sm dark:border-white/10 dark:bg-white/[0.03]"
-                    >
-                      <Icon className="text-cyan-600 dark:text-cyan-300" size={20} />
-                      <p className="mt-4 text-2xl font-black text-slate-950 dark:text-white">
-                        {metric.value}
-                      </p>
-                      <p className="mt-1 text-sm font-bold text-slate-500 dark:text-slate-400">
-                        {metric.label}
-                      </p>
-                    </div>
-                  );
-                })}
-              </div>
             </div>
 
             <div className="rounded-[2rem] border border-slate-200 bg-white p-6 shadow-2xl shadow-cyan-900/10 dark:border-white/10 dark:bg-white/[0.04] dark:shadow-cyan-950/30">
               <div className="rounded-[1.5rem] border border-slate-200 bg-slate-50 p-6 dark:border-white/10 dark:bg-slate-900/80">
                 <div className="flex items-center justify-between border-b border-slate-200 pb-5 dark:border-white/10">
                   <div>
-                    <p className="text-sm text-slate-500 dark:text-slate-400">Project Snapshot</p>
+                    <p className="text-sm text-slate-500 dark:text-slate-400">Executive Summary</p>
                     <h2 className="mt-1 text-2xl font-black text-slate-950 dark:text-white">
-                      Marketing ROI Engine
+                      Marketing Growth Engine
                     </h2>
                   </div>
 
@@ -261,10 +381,10 @@ function App() {
 
                 <div className="mt-6 space-y-4">
                   {[
-                    ['Business Problem', 'Which customer segments and channels drive profitable growth?'],
-                    ['Core Analysis', 'RFM segmentation, ROI, ROAS, CPA, CLV and churn risk.'],
-                    ['Decision Output', 'Budget reallocation and retention recommendations.'],
-                    ['Recruiter Value', 'Shows analytics, commercial thinking and storytelling.'],
+                    ['Best Channel', 'Email leads retention performance with 5.2x ROAS.'],
+                    ['Biggest Risk', 'Display campaigns show weak ROI and high CPA.'],
+                    ['Best Segment', 'Champions and Loyal Customers drive the strongest revenue.'],
+                    ['Decision', 'Shift budget toward paid search and lifecycle email.'],
                   ].map(([label, value]) => (
                     <div
                       key={label}
@@ -284,16 +404,15 @@ function App() {
           </div>
         </section>
 
-
         <section id="dashboard" className="border-y border-slate-200 bg-white/60 dark:border-white/10 dark:bg-white/[0.025]">
           <div className="mx-auto max-w-7xl px-6 py-20">
             <SectionHeader
               eyebrow="Dashboard"
-              title="Marketing performance dashboard preview."
-              text="A recruiter-friendly dashboard section showing the core business outputs: performance KPIs, channel ROI, customer segments and budget recommendations."
+              title="Executive marketing performance dashboard."
+              text="A dashboard-style view of KPI performance, channel efficiency, funnel drop-off and commercial recommendations."
             />
 
-            <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+            <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
               {dashboardMetrics.map((metric) => (
                 <div
                   key={metric.label}
@@ -307,6 +426,9 @@ function App() {
                   </p>
                   <p className="mt-2 text-sm font-black text-cyan-700 dark:text-cyan-200">
                     {metric.change}
+                  </p>
+                  <p className="mt-1 text-xs text-slate-500 dark:text-slate-400">
+                    {metric.note}
                   </p>
                 </div>
               ))}
@@ -327,21 +449,16 @@ function App() {
                             {channel.channel}
                           </p>
                           <p className="text-sm text-slate-500 dark:text-slate-400">
-                            ROAS: {channel.roas}
+                            Spend: {channel.spend} · Revenue: {channel.revenue} · ROAS: {channel.roas}
                           </p>
                         </div>
 
                         <span className="rounded-full bg-cyan-100 px-3 py-1 text-xs font-black text-cyan-800 dark:bg-cyan-400/10 dark:text-cyan-200">
-                          {channel.status}
+                          {channel.action}
                         </span>
                       </div>
 
-                      <div className="h-3 overflow-hidden rounded-full bg-slate-100 dark:bg-slate-800">
-                        <div
-                          className="h-full rounded-full bg-cyan-400"
-                          style={{ width: `${channel.roi}%` }}
-                        />
-                      </div>
+                      <ProgressBar value={channel.score} />
                     </div>
                   ))}
                 </div>
@@ -349,112 +466,143 @@ function App() {
 
               <div className="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm dark:border-white/10 dark:bg-slate-900/80">
                 <h3 className="text-xl font-black text-slate-950 dark:text-white">
-                  Budget Recommendation
+                  Funnel Performance
                 </h3>
 
-                <div className="mt-6 space-y-4">
-                  {[
-                    ['Increase', 'Paid Search and Email because ROAS is strongest.'],
-                    ['Optimise', 'Paid Social due to average conversion efficiency.'],
-                    ['Reduce', 'Display spend due to weak ROI and high CPA.'],
-                  ].map(([action, text]) => (
-                    <div
-                      key={action}
-                      className="rounded-2xl border border-slate-200 bg-slate-50 p-4 dark:border-white/10 dark:bg-slate-950/70"
-                    >
-                      <p className="text-sm font-black text-cyan-700 dark:text-cyan-200">
-                        {action}
-                      </p>
-                      <p className="mt-2 text-sm leading-6 text-slate-600 dark:text-slate-300">
-                        {text}
-                      </p>
+                <div className="mt-6 space-y-5">
+                  {funnelSteps.map((step) => (
+                    <div key={step.stage}>
+                      <div className="mb-2 flex items-center justify-between">
+                        <div>
+                          <p className="font-bold text-slate-800 dark:text-white">
+                            {step.stage}
+                          </p>
+                          <p className="text-sm text-slate-500 dark:text-slate-400">
+                            {step.users} · {step.drop}
+                          </p>
+                        </div>
+                        <p className="text-sm font-black text-cyan-700 dark:text-cyan-200">
+                          {step.rate}%
+                        </p>
+                      </div>
+                      <ProgressBar value={step.rate} />
                     </div>
                   ))}
                 </div>
               </div>
             </div>
-
-            <div className="mt-8 rounded-3xl border border-slate-200 bg-white p-6 shadow-sm dark:border-white/10 dark:bg-slate-900/80">
-              <h3 className="text-xl font-black text-slate-950 dark:text-white">
-                Customer Segment Actions
-              </h3>
-
-              <div className="mt-6 grid gap-4 md:grid-cols-2">
-                {customerSegments.map((segment) => (
-                  <div
-                    key={segment.segment}
-                    className="rounded-2xl border border-slate-200 bg-slate-50 p-4 dark:border-white/10 dark:bg-slate-950/70"
-                  >
-                    <div className="flex items-start justify-between gap-4">
-                      <div>
-                        <p className="font-black text-slate-950 dark:text-white">
-                          {segment.segment}
-                        </p>
-                        <p className="mt-1 text-sm text-slate-500 dark:text-slate-400">
-                          Revenue: {segment.revenue}
-                        </p>
-                      </div>
-
-                      <span className="rounded-full bg-cyan-100 px-3 py-1 text-xs font-black text-cyan-800 dark:bg-cyan-400/10 dark:text-cyan-200">
-                        {segment.action}
-                      </span>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div>
           </div>
         </section>
 
+        <section id="segments" className="mx-auto max-w-7xl px-6 py-20">
+          <SectionHeader
+            eyebrow="Customer Segments"
+            title="RFM-style customer segmentation insights."
+            text="Customer groups are translated into practical marketing actions so the analysis becomes useful for retention, acquisition and budget planning."
+          />
 
-        <section id="overview" className="border-y border-slate-200 bg-white/60 dark:border-white/10 dark:bg-white/[0.025]">
+          <div className="grid gap-5 lg:grid-cols-2">
+            {customerSegments.map((segment) => (
+              <div
+                key={segment.segment}
+                className="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm dark:border-white/10 dark:bg-slate-900/80"
+              >
+                <div className="flex flex-wrap items-start justify-between gap-3">
+                  <div>
+                    <h3 className="text-xl font-black text-slate-950 dark:text-white">
+                      {segment.segment}
+                    </h3>
+                    <p className="mt-1 text-sm text-slate-500 dark:text-slate-400">
+                      {segment.behaviour}
+                    </p>
+                  </div>
+
+                  <span className="rounded-full bg-cyan-100 px-3 py-1 text-xs font-black text-cyan-800 dark:bg-cyan-400/10 dark:text-cyan-200">
+                    {segment.size}
+                  </span>
+                </div>
+
+                <div className="mt-5 rounded-2xl border border-slate-200 bg-slate-50 p-4 dark:border-white/10 dark:bg-slate-950/70">
+                  <p className="text-sm font-bold text-slate-500 dark:text-slate-400">
+                    Revenue Contribution
+                  </p>
+                  <p className="mt-2 text-2xl font-black text-slate-950 dark:text-white">
+                    {segment.revenue}
+                  </p>
+                </div>
+
+                <p className="mt-5 text-sm leading-7 text-slate-600 dark:text-slate-300">
+                  <span className="font-black text-cyan-700 dark:text-cyan-200">Action: </span>
+                  {segment.action}
+                </p>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        <section id="budget" className="border-y border-slate-200 bg-white/60 dark:border-white/10 dark:bg-white/[0.025]">
           <div className="mx-auto max-w-7xl px-6 py-20">
             <SectionHeader
-              eyebrow="Overview"
-              title="A marketing analytics project designed around commercial decisions."
-              text="The project simulates realistic e-commerce analytics questions faced by fashion retailers. It connects customer behaviour, campaign efficiency and budget allocation into one executive-ready story."
+              eyebrow="Budget Reallocation"
+              title="Where marketing spend should move next."
+              text="The recommendation focuses on shifting budget away from weak ROI activity and into channels with stronger conversion and retention performance."
             />
 
-            <div className="grid gap-5 md:grid-cols-3">
-              {[
-                ['Customer Segmentation', 'Identify profitable customer groups, repeat buyers and churn-risk audiences.'],
-                ['Marketing ROI', 'Evaluate channel and campaign performance using ROI, ROAS and CPA.'],
-                ['Budget Strategy', 'Recommend where spend should be reduced, protected or reallocated.'],
-              ].map(([title, text]) => (
+            <div className="grid gap-5">
+              {budgetPlan.map((item) => (
                 <div
-                  key={title}
-                  className="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm dark:border-white/10 dark:bg-slate-900/70"
+                  key={item.channel}
+                  className="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm dark:border-white/10 dark:bg-slate-900/80"
                 >
-                  <CheckCircle2 className="text-cyan-600 dark:text-cyan-300" size={22} />
-                  <h3 className="mt-5 text-xl font-black text-slate-950 dark:text-white">
-                    {title}
-                  </h3>
-                  <p className="mt-3 text-sm leading-7 text-slate-600 dark:text-slate-300">
-                    {text}
-                  </p>
+                  <div className="grid gap-6 lg:grid-cols-[0.8fr_1fr_1fr] lg:items-center">
+                    <div>
+                      <h3 className="text-xl font-black text-slate-950 dark:text-white">
+                        {item.channel}
+                      </h3>
+                      <p className="mt-2 text-sm leading-6 text-slate-600 dark:text-slate-300">
+                        {item.reason}
+                      </p>
+                    </div>
+
+                    <div>
+                      <div className="mb-2 flex justify-between text-sm font-bold text-slate-600 dark:text-slate-300">
+                        <span>Current</span>
+                        <span>{item.current}</span>
+                      </div>
+                      <ProgressBar value={Number(item.current.replace('%', ''))} />
+                    </div>
+
+                    <div>
+                      <div className="mb-2 flex justify-between text-sm font-bold text-slate-600 dark:text-slate-300">
+                        <span>Recommended</span>
+                        <span>{item.recommended}</span>
+                      </div>
+                      <ProgressBar value={Number(item.recommended.replace('%', ''))} />
+                    </div>
+                  </div>
                 </div>
               ))}
             </div>
           </div>
         </section>
 
-        <section id="methodology" className="mx-auto max-w-7xl px-6 py-20">
+        <section id="insights" className="mx-auto max-w-7xl px-6 py-20">
           <SectionHeader
-            eyebrow="Methodology"
-            title="From raw data to executive recommendations."
-            text="A structured workflow for cleaning, segmenting, measuring and recommending actions."
+            eyebrow="Insights Deep Dive"
+            title="Commercial insights from the Zalando-style analysis."
+            text="Insights are written as interview-ready talking points that connect the data to commercial decisions."
           />
 
-          <div className="grid gap-5 md:grid-cols-2">
-            {methodology.map((item, index) => (
+          <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-4">
+            {executiveInsights.map((item) => (
               <div
                 key={item.title}
-                className="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm dark:border-white/10 dark:bg-white/[0.035]"
+                className="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm dark:border-white/10 dark:bg-slate-900/80"
               >
-                <div className="flex h-10 w-10 items-center justify-center rounded-2xl bg-cyan-400 text-sm font-black text-slate-950">
-                  {index + 1}
-                </div>
-                <h3 className="mt-5 text-xl font-black text-slate-950 dark:text-white">
+                <p className="text-3xl font-black text-cyan-700 dark:text-cyan-200">
+                  {item.metric}
+                </p>
+                <h3 className="mt-4 text-lg font-black text-slate-950 dark:text-white">
                   {item.title}
                 </h3>
                 <p className="mt-3 text-sm leading-7 text-slate-600 dark:text-slate-300">
@@ -463,25 +611,21 @@ function App() {
               </div>
             ))}
           </div>
-        </section>
 
-        <section id="insights" className="border-y border-slate-200 bg-white/60 dark:border-white/10 dark:bg-white/[0.025]">
-          <div className="mx-auto max-w-7xl px-6 py-20">
-            <SectionHeader
-              eyebrow="Insights"
-              title="Key business insights and recommendations."
-              text="The final output is designed to help marketing, commercial and growth teams make better decisions."
-            />
+          <div className="mt-8 rounded-3xl border border-cyan-500/20 bg-cyan-500/10 p-6">
+            <h3 className="text-xl font-black text-slate-950 dark:text-white">
+              Final Recommendations
+            </h3>
 
-            <div className="grid gap-5 lg:grid-cols-2">
-              {insights.map((insight) => (
+            <div className="mt-6 grid gap-4 md:grid-cols-2">
+              {recommendations.map((item) => (
                 <div
-                  key={insight}
-                  className="flex gap-4 rounded-3xl border border-slate-200 bg-white p-6 shadow-sm dark:border-white/10 dark:bg-slate-900/70"
+                  key={item}
+                  className="flex gap-4 rounded-2xl border border-slate-200 bg-white p-4 shadow-sm dark:border-white/10 dark:bg-slate-950/70"
                 >
-                  <Target className="mt-1 shrink-0 text-cyan-600 dark:text-cyan-300" size={22} />
+                  <Target className="mt-1 shrink-0 text-cyan-700 dark:text-cyan-200" size={20} />
                   <p className="text-sm leading-7 text-slate-600 dark:text-slate-300">
-                    {insight}
+                    {item}
                   </p>
                 </div>
               ))}
@@ -489,43 +633,64 @@ function App() {
           </div>
         </section>
 
-        <section id="tools" className="mx-auto max-w-7xl px-6 py-20">
-          <SectionHeader
-            eyebrow="Tools & KPIs"
-            title="Technical stack and metrics used."
-            text="Built to demonstrate both technical analytics capability and commercial KPI understanding."
-          />
+        <section id="methodology" className="border-y border-slate-200 bg-white/60 dark:border-white/10 dark:bg-white/[0.025]">
+          <div className="mx-auto max-w-7xl px-6 py-20">
+            <SectionHeader
+              eyebrow="Methodology"
+              title="From raw data to executive recommendations."
+              text="A structured workflow for cleaning, segmenting, measuring and recommending actions."
+            />
 
-          <div className="grid gap-6 lg:grid-cols-2">
-            {[
-              ['Tools', tools],
-              ['KPIs Analysed', kpis],
-            ].map(([title, items]) => (
-              <div
-                key={title}
-                className="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm dark:border-white/10 dark:bg-white/[0.035]"
-              >
-                <h3 className="text-xl font-black text-slate-950 dark:text-white">
-                  {title}
-                </h3>
-                <div className="mt-5 flex flex-wrap gap-2">
-                  {items.map((item) => (
-                    <span
-                      key={item}
-                      className="rounded-full border border-slate-200 bg-slate-50 px-3 py-2 text-sm font-bold text-slate-700 dark:border-white/10 dark:bg-slate-950/70 dark:text-slate-300"
-                    >
-                      {item}
-                    </span>
-                  ))}
+            <div className="grid gap-5 md:grid-cols-2">
+              {methodology.map((item, index) => (
+                <div
+                  key={item.title}
+                  className="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm dark:border-white/10 dark:bg-white/[0.035]"
+                >
+                  <div className="flex h-10 w-10 items-center justify-center rounded-2xl bg-cyan-400 text-sm font-black text-slate-950">
+                    {index + 1}
+                  </div>
+                  <h3 className="mt-5 text-xl font-black text-slate-950 dark:text-white">
+                    {item.title}
+                  </h3>
+                  <p className="mt-3 text-sm leading-7 text-slate-600 dark:text-slate-300">
+                    {item.text}
+                  </p>
                 </div>
-              </div>
-            ))}
+              ))}
+            </div>
+
+            <div className="mt-8 grid gap-6 lg:grid-cols-2">
+              {[
+                ['Tools Used', tools],
+                ['KPIs Analysed', kpis],
+              ].map(([title, items]) => (
+                <div
+                  key={title}
+                  className="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm dark:border-white/10 dark:bg-white/[0.035]"
+                >
+                  <h3 className="text-xl font-black text-slate-950 dark:text-white">
+                    {title}
+                  </h3>
+                  <div className="mt-5 flex flex-wrap gap-2">
+                    {items.map((item) => (
+                      <span
+                        key={item}
+                        className="rounded-full border border-slate-200 bg-slate-50 px-3 py-2 text-sm font-bold text-slate-700 dark:border-white/10 dark:bg-slate-950/70 dark:text-slate-300"
+                      >
+                        {item}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              ))}
+            </div>
           </div>
         </section>
       </main>
 
       <footer className="relative z-10 border-t border-slate-200 px-6 py-8 text-center text-sm text-slate-500 dark:border-white/10">
-        Zalando-Style Customer Segmentation & Marketing ROI Analysis © 2026
+        Zalando-Style Customer Segmentation & Marketing ROI Dashboard © 2026
       </footer>
     </div>
   );
