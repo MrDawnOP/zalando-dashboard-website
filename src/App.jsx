@@ -63,6 +63,28 @@ const tools = [
   'Marketing ROI',
 ];
 
+
+const dashboardMetrics = [
+  { label: 'Total Revenue', value: '£2.4M', change: '+18%' },
+  { label: 'Marketing ROI', value: '3.8x', change: '+22%' },
+  { label: 'Avg CPA', value: '£14.20', change: '-11%' },
+  { label: 'Churn Risk', value: '18%', change: '-7%' },
+];
+
+const channelPerformance = [
+  { channel: 'Paid Search', roas: '4.6x', roi: 82, status: 'Scale' },
+  { channel: 'Email', roas: '5.2x', roi: 91, status: 'Protect' },
+  { channel: 'Paid Social', roas: '2.1x', roi: 44, status: 'Optimise' },
+  { channel: 'Display', roas: '1.4x', roi: 28, status: 'Reduce' },
+];
+
+const customerSegments = [
+  { segment: 'Champions', revenue: '£680K', action: 'Retention priority' },
+  { segment: 'Loyal Customers', revenue: '£520K', action: 'Cross-sell' },
+  { segment: 'At Risk', revenue: '£310K', action: 'Win-back campaign' },
+  { segment: 'Low Value', revenue: '£120K', action: 'Limit paid spend' },
+];
+
 const kpis = [
   'Revenue',
   'Profit',
@@ -158,6 +180,7 @@ function App() {
           </a>
 
           <div className="hidden items-center gap-7 text-sm font-semibold text-slate-600 dark:text-slate-300 md:flex">
+            <a href="#dashboard" className="hover:text-cyan-700 dark:hover:text-cyan-200">Dashboard</a>
             <a href="#overview" className="hover:text-cyan-700 dark:hover:text-cyan-200">Overview</a>
             <a href="#methodology" className="hover:text-cyan-700 dark:hover:text-cyan-200">Methodology</a>
             <a href="#insights" className="hover:text-cyan-700 dark:hover:text-cyan-200">Insights</a>
@@ -260,6 +283,129 @@ function App() {
             </div>
           </div>
         </section>
+
+
+        <section id="dashboard" className="border-y border-slate-200 bg-white/60 dark:border-white/10 dark:bg-white/[0.025]">
+          <div className="mx-auto max-w-7xl px-6 py-20">
+            <SectionHeader
+              eyebrow="Dashboard"
+              title="Marketing performance dashboard preview."
+              text="A recruiter-friendly dashboard section showing the core business outputs: performance KPIs, channel ROI, customer segments and budget recommendations."
+            />
+
+            <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+              {dashboardMetrics.map((metric) => (
+                <div
+                  key={metric.label}
+                  className="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm dark:border-white/10 dark:bg-slate-900/80"
+                >
+                  <p className="text-sm font-bold text-slate-500 dark:text-slate-400">
+                    {metric.label}
+                  </p>
+                  <p className="mt-3 text-3xl font-black text-slate-950 dark:text-white">
+                    {metric.value}
+                  </p>
+                  <p className="mt-2 text-sm font-black text-cyan-700 dark:text-cyan-200">
+                    {metric.change}
+                  </p>
+                </div>
+              ))}
+            </div>
+
+            <div className="mt-8 grid gap-6 lg:grid-cols-[1.15fr_0.85fr]">
+              <div className="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm dark:border-white/10 dark:bg-slate-900/80">
+                <h3 className="text-xl font-black text-slate-950 dark:text-white">
+                  Channel ROI & ROAS Performance
+                </h3>
+
+                <div className="mt-6 space-y-5">
+                  {channelPerformance.map((channel) => (
+                    <div key={channel.channel}>
+                      <div className="mb-2 flex items-center justify-between gap-4">
+                        <div>
+                          <p className="font-bold text-slate-800 dark:text-white">
+                            {channel.channel}
+                          </p>
+                          <p className="text-sm text-slate-500 dark:text-slate-400">
+                            ROAS: {channel.roas}
+                          </p>
+                        </div>
+
+                        <span className="rounded-full bg-cyan-100 px-3 py-1 text-xs font-black text-cyan-800 dark:bg-cyan-400/10 dark:text-cyan-200">
+                          {channel.status}
+                        </span>
+                      </div>
+
+                      <div className="h-3 overflow-hidden rounded-full bg-slate-100 dark:bg-slate-800">
+                        <div
+                          className="h-full rounded-full bg-cyan-400"
+                          style={{ width: `${channel.roi}%` }}
+                        />
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              <div className="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm dark:border-white/10 dark:bg-slate-900/80">
+                <h3 className="text-xl font-black text-slate-950 dark:text-white">
+                  Budget Recommendation
+                </h3>
+
+                <div className="mt-6 space-y-4">
+                  {[
+                    ['Increase', 'Paid Search and Email because ROAS is strongest.'],
+                    ['Optimise', 'Paid Social due to average conversion efficiency.'],
+                    ['Reduce', 'Display spend due to weak ROI and high CPA.'],
+                  ].map(([action, text]) => (
+                    <div
+                      key={action}
+                      className="rounded-2xl border border-slate-200 bg-slate-50 p-4 dark:border-white/10 dark:bg-slate-950/70"
+                    >
+                      <p className="text-sm font-black text-cyan-700 dark:text-cyan-200">
+                        {action}
+                      </p>
+                      <p className="mt-2 text-sm leading-6 text-slate-600 dark:text-slate-300">
+                        {text}
+                      </p>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+
+            <div className="mt-8 rounded-3xl border border-slate-200 bg-white p-6 shadow-sm dark:border-white/10 dark:bg-slate-900/80">
+              <h3 className="text-xl font-black text-slate-950 dark:text-white">
+                Customer Segment Actions
+              </h3>
+
+              <div className="mt-6 grid gap-4 md:grid-cols-2">
+                {customerSegments.map((segment) => (
+                  <div
+                    key={segment.segment}
+                    className="rounded-2xl border border-slate-200 bg-slate-50 p-4 dark:border-white/10 dark:bg-slate-950/70"
+                  >
+                    <div className="flex items-start justify-between gap-4">
+                      <div>
+                        <p className="font-black text-slate-950 dark:text-white">
+                          {segment.segment}
+                        </p>
+                        <p className="mt-1 text-sm text-slate-500 dark:text-slate-400">
+                          Revenue: {segment.revenue}
+                        </p>
+                      </div>
+
+                      <span className="rounded-full bg-cyan-100 px-3 py-1 text-xs font-black text-cyan-800 dark:bg-cyan-400/10 dark:text-cyan-200">
+                        {segment.action}
+                      </span>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </section>
+
 
         <section id="overview" className="border-y border-slate-200 bg-white/60 dark:border-white/10 dark:bg-white/[0.025]">
           <div className="mx-auto max-w-7xl px-6 py-20">
